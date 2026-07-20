@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Intelligence Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- Ensure you have a valid icon font or use SVGs. Using generic FA for now, but will fallback to emojis if not loaded -->
+</head>
+<body>
+
+<div class="dashboard-container">
+  <header>
+    <div>
+      <h1>Client Intelligence Dashboard</h1>
+      <span style="font-size: 0.9rem; color: var(--text-muted);">AI-Powered Insights</span>
+    </div>
+    <div class="export-options hidden" id="export-options">
+      <button class="btn btn-outline" id="export-json-btn">⬇ Export JSON</button>
+      <button class="btn btn-outline" id="export-pdf-btn">🖨 Download PDF</button>
+    </div>
+  </header>
+
+  <section class="upload-section" id="upload-zone">
+    <div style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;">📄</div>
+    <h2 style="margin-bottom: 0.5rem;">Upload Client Conversation</h2>
+    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Drag & drop a TXT or PDF file here, or click to browse</p>
+    <input type="file" id="file-input" class="hidden" accept=".txt,.pdf" />
+    <button class="btn" onclick="document.getElementById('file-input').click()">
+      Browse Files
+    </button>
+    <div id="file-name-display" style="margin-top: 1rem; font-weight: 500; color: var(--primary-color);"></div>
+    <button class="btn hidden" id="analyze-btn" style="margin-top: 1rem; background-color: var(--client-color);">
+      Analyze Conversation
+    </button>
+  </section>
+
+  <div class="loader" id="loader">
+    <div class="skeleton-card"></div>
+    <div class="skeleton-card"></div>
+    <div class="skeleton-card"></div>
+    <p style="color: var(--text-muted); grid-column: 1 / -1;">Analyzing conversation with AI... This may take a few seconds.</p>
+  </div>
+
+  <div id="dashboard-content" class="hidden">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+      <section id="executive-summary-section" class="summary-section" style="margin-bottom: 0;"></section>
+      <section id="trend-summary-section" class="summary-section" style="margin-bottom: 0;"></section>
+    </div>
+    
+    <main class="results-grid" id="results-grid">
+      <!-- Cards will be dynamically injected here via JavaScript -->
+      <div id="empty-state" class="empty-state hidden">
+        <p>No valid insights generated.</p>
+      </div>
+    </main>
+
+    <section id="coach-insights-section" class="insights-section"></section>
+    <section id="ai-quality-report-section" class="insights-section"></section>
+    
+    <button class="btn btn-reset" id="reset-btn">Upload Another File</button>
+  </div>
+</div>
+
+<script src="assets/app.js?v=2"></script>
+</body>
+</html>
