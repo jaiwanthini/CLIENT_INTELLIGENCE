@@ -21,12 +21,14 @@ This application extracts strictly structured information and provides evidence-
 - **Premium UI**: Clean, responsive, vanilla CSS UI with dynamic progress bars for confidence scores.
 
 ## Screenshots
-![Dashboard Interface](screenshots/dashboard.png)
+![Dashboard Interface](screenshots/dashboard%20(2).png)
 ![AI Insights View](screenshots/insights.png)
+![AI Insights View 2](screenshots/insights%20(2).png)
+![AI Insights View 3](screenshots/insights%20(3).png)
 
 ## Sample Outputs & Schemas
-- **Sample PDF Report**: [View PDF](outputs/sample_report.pdf)
-- **Sample JSON Output**: [View JSON](outputs/sample_output.json)
+- **Sample PDF Report**: [View PDF](outputs/Client%20Intelligence%20Dashboard22.pdf)
+- **Sample JSON Output**: [View JSON](outputs/client_report_1784636680065.json)
 
 ## AI Prompt & Workflow
 The logic detailing the system architecture, JSON schema constraints, and hallucination prevention rules can be found here:

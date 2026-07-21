@@ -1,0 +1,310 @@
+{
+  "executive_summary": {
+    "classification": "AI Inference",
+    "confidence": 80,
+    "evidence": "Slept only around 5 hours last night. Daughter had exams, so I was awake late. Still having acidity and bloating. During a meeting today I was so tired that my head went down on the table and I actually slept for a few seconds. Slept better last night, around 8 hours. Energy feels much better today.",
+    "day": "Multiple Days",
+    "speaker": "Client, Coach",
+    "reasoning": "The client experienced significant sleep deprivation, stress, and physical symptoms like acidity and bloating throughout the week, leading to a critical incident of falling asleep during a meeting. However, sleep improved on Day 8, leading to better energy. Nutrition adherence and meal planning were inconsistent.",
+    "evidence_used": [
+      "Slept only around 5 hours last night.",
+      "Still having acidity and bloating.",
+      "During a meeting today I was so tired that my head went down on the table and I actually slept for a few seconds.",
+      "Slept better last night, around 8 hours. Energy feels much better today."
+    ],
+    "evidence_count": 4,
+    "overall_health_status": "Fluctuating, with significant decline mid-week due to stress and sleep deprivation, but showing signs of recovery by the end.",
+    "overall_trend": "Declining",
+    "risk_level": "High",
+    "overall_engagement": "Moderate",
+    "main_concerns": [
+      "Severe sleep deprivation",
+      "High stress levels",
+      "Persistent acidity and bloating",
+      "Inconsistent nutrition (especially protein)",
+      "Challenges with meal planning"
+    ],
+    "coach_focus_this_week": "Prioritize sleep and stress management, develop practical meal planning strategies, and address persistent digestive issues."
+  },
+  "trend_summary": {
+    "classification": "AI Inference",
+    "confidence": 85,
+    "evidence": "Slept only around 5 hours last night. Still having acidity and bloating. During a meeting today I was so tired that my head went down on the table and I actually slept for a few seconds. Slept better last night, around 8 hours. Energy feels much better today. Didn’t eat much in the evening. Just a small piece of paneer. Protein seems low in breakfast on some days. Did some mopping, sweeping, Surya Namaskar and walking inside the house. Steps around 8,000. Did around 20 minutes walking, stretching and breathing today. Feeling really good. Stressful situation at work. Office pressure and politics going on.",
+    "day": "Multiple Days",
+    "speaker": "Client, Coach",
+    "reasoning": "Sleep was consistently low (5-5.5 hours) for most of the week, leading to severe fatigue, but improved significantly on Day 8. Nutrition was inconsistent with skipped meals and low protein on several days. Stress levels escalated significantly due to work pressure. Activity levels were generally stable with daily movement and exercise.",
+    "evidence_used": [
+      "Slept only around 5 hours last night.",
+      "During a meeting today I was so tired that my head went down on the table and I actually slept for a few seconds.",
+      "Slept better last night, around 8 hours.",
+      "Protein seems low in breakfast on some days.",
+      "Stressful situation at work.",
+      "Did some mopping, sweeping, Surya Namaskar and walking inside the house."
+    ],
+    "evidence_count": 6,
+    "sleep": "Mixed",
+    "nutrition": "Mixed",
+    "stress": "Declining",
+    "activity": "Stable"
+  },
+  "weekly_summary": {
+    "classification": "AI Inference",
+    "confidence": 75,
+    "evidence": "Slept only around 5 hours last night. Still having acidity and bloating. Weight seems slightly up even though I’m eating almost half of what I used to eat. During a meeting today I was so tired that my head went down on the table and I actually slept for a few seconds. Slept better last night, around 8 hours. Energy feels much better today. Not getting enough time to plan meals.",
+    "day": "Multiple Days",
+    "speaker": "Client, Coach",
+    "reasoning": "The client faced a challenging week marked by severe sleep deprivation, escalating work stress, and persistent digestive issues. While activity levels were maintained, nutrition was inconsistent due to time constraints. A critical incident of falling asleep during a meeting highlighted the severity of fatigue. The week ended with improved sleep and energy, but underlying issues remain.",
+    "evidence_used": [
+      "Slept only around 5 hours last night.",
+      "During a meeting today I was so tired that my head went down on the table and I actually slept for a few seconds.",
+      "Slept better last night, around 8 hours. Energy feels much better today.",
+      "Not getting enough time to plan meals."
+    ],
+    "evidence_count": 4,
+    "value": "The client experienced a challenging week with significant sleep deprivation and increased stress, culminating in a critical fatigue incident. Nutrition was inconsistent, and digestive issues persisted. However, sleep and energy improved by the end of the week."
+  },
+  "nutrition_adherence": {
+    "classification": "AI Inference",
+    "confidence": 75,
+    "evidence": "No. I still need to stock vegetables properly. Will do it tomorrow. Didn’t eat much in the evening. Just a small piece of paneer. Forgot ACV today. Not yet in the habit. Protein seems low in breakfast on some days. Not getting enough time to plan meals.",
+    "day": "Multiple Days",
+    "speaker": "Client, Coach",
+    "reasoning": "The client struggled with consistent nutrition adherence, often skipping meals, having low protein intake, and forgetting supplements like ACV. Meal planning was identified as a significant barrier.",
+    "evidence_used": [
+      "No. I still need to stock vegetables properly.",
+      "Didn’t eat much in the evening. Just a small piece of paneer.",
+      "Forgot ACV today. Not yet in the habit.",
+      "Protein seems low in breakfast on some days.",
+      "I am not getting enough time to plan meals."
+    ],
+    "evidence_count": 5,
+    "value": "Inconsistent, with instances of skipping meals, low protein intake, forgetting ACV, and challenges with meal planning due to time constraints."
+  },
+  "exercise_steps": {
+    "classification": "Confirmed Fact",
+    "confidence": 98,
+    "evidence": "Did some mopping, sweeping, Surya Namaskar and walking inside the house. Steps around 8,000. 4,500 steps so far. Did 20 minutes stretching and running. Steps 6,000 today. Did 30 minutes exercise. Steps around 8,000.",
+    "day": "Multiple Days",
+    "speaker": "Client, Accountability Coach",
+    "reasoning": "The client consistently reported daily steps and various forms of exercise throughout the week.",
+    "evidence_used": [
+      "Did some mopping, sweeping, Surya Namaskar and walking inside the house.",
+      "Steps around 8,000.",
+      "4,500 steps so far.",
+      "Did 20 minutes stretching and running."
+    ],
+    "evidence_count": 4,
+    "value": "Consistent daily activity including walking (ranging from 4,500 to 8,000 steps), mopping, sweeping, Surya Namaskar, stretching, and running."
+  },
+  "sleep": {
+    "classification": "AI Inference",
+    "confidence": 80,
+    "evidence": "Slept only around 5 hours last night. Daughter had exams, so I was awake late. Sleep 5 hours. Sleep around 5.5 hours. During a meeting today I was so tired that my head went down on the table and I actually slept for a few seconds. Slept better last night, around 8 hours.",
+    "day": "Multiple Days",
+    "speaker": "Client, Accountability Coach",
+    "reasoning": "Sleep was consistently low (5-5.5 hours) for most of the week due to external factors and stress, leading to severe fatigue. It significantly improved to 8 hours on the last reported day.",
+    "evidence_used": [
+      "Slept only around 5 hours last night.",
+      "Sleep 5 hours",
+      "Sleep around 5.5 hours.",
+      "Slept better last night, around 8 hours."
+    ],
+    "evidence_count": 4,
+    "value": "Varied significantly, starting at around 5 hours for several days, increasing to 5.5 hours, and then improving to 8 hours by the end of the week."
+  },
+  "water_intake": {
+    "classification": "Confirmed Fact",
+    "confidence": 98,
+    "evidence": "Walk and water done. Water 4 litres. Water around 3.5 litres.",
+    "day": "Multiple Days",
+    "speaker": "Client, Accountability Coach",
+    "reasoning": "The client explicitly reported water intake on multiple days.",
+    "evidence_used": [
+      "Walk and water done.",
+      "Water 4 litres",
+      "Water around 3.5 litres."
+    ],
+    "evidence_count": 3,
+    "value": "Generally good, with reports of \"water done,\" 4 litres, and 3.5 litres on different days."
+  },
+  "symptoms": {
+    "classification": "Client Reported",
+    "confidence": 90,
+    "evidence": "Feeling some acidity since morning. Still having acidity and bloating. Bloating is back and I feel like I have gained weight. Still having bloating on and off.",
+    "day": "Multiple Days",
+    "speaker": "Client",
+    "reasoning": "The client explicitly reported experiencing acidity and bloating multiple times throughout the week.",
+    "evidence_used": [
+      "Feeling some acidity since morning.",
+      "Still having acidity and bloating.",
+      "Bloating is back and I feel like I have gained weight.",
+      "Still having bloating on and off."
+    ],
+    "evidence_count": 4,
+    "value": [
+      "Acidity (persistent)",
+      "Bloating (persistent)",
+      "Feeling like gained weight"
+    ]
+  },
+  "stress": {
+    "classification": "AI Inference",
+    "confidence": 85,
+    "evidence": "Daughter had exams, so I was awake late. Very hectic morning. Stressful situation at work. There is a lot of office pressure and politics going on. During a meeting today I was so tired that my head went down on the table and I actually slept for a few seconds.",
+    "day": "Multiple Days",
+    "speaker": "Client",
+    "reasoning": "The client reported multiple sources of stress, including daughter's exams, hectic mornings, and significant work pressure and politics, which culminated in severe fatigue.",
+    "evidence_used": [
+      "Daughter had exams, so I was awake late.",
+      "Very hectic morning.",
+      "Stressful situation at work.",
+      "There is a lot of office pressure and politics going on.",
+      "During a meeting today I was so tired that my head went down on the table and I actually slept for a few seconds."
+    ],
+    "evidence_count": 5,
+    "value": "Significantly elevated due to daughter's exams, hectic school mornings, and severe work pressure and politics, leading to extreme fatigue."
+  },
+  "engagement_level": {
+    "classification": "AI Inference",
+    "confidence": 75,
+    "evidence": "Good. Please keep sharing your daily updates for water, sleep, steps, exercise and meals. Forgot ACV today. Not yet in the habit. Sorry I missed your call. There was a stressful situation at work. Tried calling you. Please update when free.",
+    "day": "Multiple Days",
+    "speaker": "Client, Coach, Accountability Coach",
+    "reasoning": "The client generally provided daily updates and responded to coach questions, but missed a call due to a stressful work situation and struggled with consistent adherence to some recommendations.",
+    "evidence_used": [
+      "Good. Please keep sharing your daily updates for water, sleep, steps, exercise and meals.",
+      "Forgot ACV today. Not yet in the habit.",
+      "Sorry I missed your call. There was a stressful situation at work."
+    ],
+    "evidence_count": 3,
+    "value": "Moderate. The client provided regular updates and engaged in conversation, but missed a coach call and struggled with consistent adherence to some habits due to external stressors."
+  },
+  "key_barriers": {
+    "classification": "Client Reported",
+    "confidence": 90,
+    "evidence": "Daughter had exams, so I was awake late. No. I still need to stock vegetables properly. Will do it tomorrow. I didn’t get time. I am not getting enough time to plan meals. Next week should be easier. Stressful situation at work. There is a lot of office pressure and politics going on.",
+    "day": "Multiple Days",
+    "speaker": "Client",
+    "reasoning": "The client explicitly stated several reasons for their challenges, including family commitments, lack of time for meal prep/eating, and work stress.",
+    "evidence_used": [
+      "Daughter had exams, so I was awake late.",
+      "No. I still need to stock vegetables properly.",
+      "I didn’t get time.",
+      "I am not getting enough time to plan meals.",
+      "Stressful situation at work.",
+      "There is a lot of office pressure and politics going on."
+    ],
+    "evidence_count": 6,
+    "value": [
+      "Sleep deprivation due to family commitments (daughter's exams)",
+      "Lack of time for meal planning and preparation",
+      "Hectic schedule (school, work)",
+      "Work-related stress and politics",
+      "Difficulty stocking vegetables"
+    ]
+  },
+  "pending_actions": {
+    "classification": "Confirmed Fact",
+    "confidence": 98,
+    "evidence": "I still need to stock vegetables properly. Will do it tomorrow. Set a reminder around meal timings. Yes, will do. Have ordered them.",
+    "day": "Multiple Days",
+    "speaker": "Client, Coach",
+    "reasoning": "The client and coach explicitly discussed and agreed upon several actions to be taken.",
+    "evidence_used": [
+      "I still need to stock vegetables properly. Will do it tomorrow.",
+      "Set a reminder around meal timings.",
+      "Yes, will do.",
+      "Have ordered them."
+    ],
+    "evidence_count": 4,
+    "value": [
+      "Stock vegetables properly",
+      "Set reminder for ACV around meal timings",
+      "Order sprouts"
+    ]
+  },
+  "risk_flags": {
+    "classification": "AI Inference",
+    "confidence": 85,
+    "evidence": "Slept only around 5 hours last night. Feeling some acidity since morning. Still having acidity and bloating. During a meeting today I was so tired that my head went down on the table and I actually slept for a few seconds. There is a lot of office pressure and politics going on. Weight seems slightly up even though I’m eating almost half of what I used to eat.",
+    "day": "Multiple Days",
+    "speaker": "Client, Coach",
+    "reasoning": "The client's severe sleep deprivation leading to falling asleep during a meeting is a critical risk. Persistent digestive issues and high stress levels are high risks. Inconsistent nutrition and weight concerns are medium risks.",
+    "evidence_used": [
+      "Slept only around 5 hours last night.",
+      "During a meeting today I was so tired that my head went down on the table and I actually slept for a few seconds.",
+      "Still having acidity and bloating.",
+      "There is a lot of office pressure and politics going on.",
+      "Weight seems slightly up even though I’m eating almost half of what I used to eat."
+    ],
+    "evidence_count": 5,
+    "value": {
+      "critical": [
+        "Severe sleep deprivation leading to falling asleep during a meeting"
+      ],
+      "high": [
+        "High stress levels due to work pressure and politics",
+        "Persistent acidity and bloating"
+      ],
+      "medium": [
+        "Inconsistent nutrition and low protein intake",
+        "Client concern about weight gain despite reduced food intake"
+      ],
+      "low": []
+    }
+  },
+  "recommended_next_action": {
+    "classification": "AI Inference",
+    "confidence": 80,
+    "evidence": "During a meeting today I was so tired that my head went down on the table and I actually slept for a few seconds. Slept better last night, around 8 hours. Energy feels much better today. We also need to look at your sleep and stress more carefully. Let’s keep the plan practical.",
+    "day": "Multiple Days",
+    "speaker": "Coach",
+    "reasoning": "Given the critical incident of falling asleep due to fatigue and the coach's previous advice, the immediate focus should be on reinforcing improved sleep and developing sustainable stress management and meal planning strategies.",
+    "evidence_used": [
+      "During a meeting today I was so tired that my head went down on the table and I actually slept for a few seconds.",
+      "We also need to look at your sleep and stress more carefully.",
+      "Let’s keep the plan practical."
+    ],
+    "evidence_count": 3,
+    "value": "The coach should follow up on the client's improved sleep and energy, and work collaboratively to develop practical strategies for stress management and consistent meal planning, especially given the client's hectic schedule."
+  },
+  "coach_insights": {
+    "classification": "AI Inference",
+    "confidence": 85,
+    "evidence": "Slept only around 5 hours last night. Still having acidity and bloating. During a meeting today I was so tired that my head went down on the table and I actually slept for a few seconds. Slept better last night, around 8 hours. Energy feels much better today. Not getting enough time to plan meals. Protein seems low in breakfast on some days. Stressful situation at work.",
+    "day": "Multiple Days",
+    "speaker": "Client, Coach",
+    "reasoning": "Synthesizing the client's reports and coach's observations throughout the week.",
+    "evidence_used": [
+      "Slept only around 5 hours last night.",
+      "During a meeting today I was so tired that my head went down on the table and I actually slept for a few seconds.",
+      "Slept better last night, around 8 hours. Energy feels much better today.",
+      "Not getting enough time to plan meals.",
+      "Stressful situation at work."
+    ],
+    "evidence_count": 5,
+    "top_observations": [
+      "Client experienced severe sleep deprivation and high stress, culminating in falling asleep during a work meeting.",
+      "Nutrition was inconsistent, with challenges in meal planning and adequate protein intake.",
+      "Persistent acidity and bloating were reported throughout the week.",
+      "Activity levels remained consistent despite other challenges.",
+      "Significant improvement in sleep and energy was noted on the last day."
+    ],
+    "top_risks": [
+      "Critical risk of severe fatigue and burnout due to chronic sleep deprivation and high stress.",
+      "High risk of digestive issues (acidity, bloating) impacting overall well-being.",
+      "Medium risk of nutritional deficiencies due to inconsistent eating and low protein."
+    ],
+    "top_wins": [
+      "Client maintained consistent physical activity (steps, exercise).",
+      "Client successfully incorporated ACV on Day 4 after forgetting it.",
+      "Client achieved 8 hours of sleep on Day 8, leading to significantly improved energy."
+    ],
+    "immediate_next_action": "Acknowledge the client's improved sleep and energy, and collaboratively strategize on sustainable stress management techniques and simplified meal planning for the upcoming week.",
+    "follow_up_questions": [
+      "How do you feel about the 8 hours of sleep you got last night, and what do you think contributed to it?",
+      "Given the ongoing work pressure, what are some small, practical steps we can take to manage stress during your workday?",
+      "What would a 'practical' meal plan look like for you next week, considering your time constraints?"
+    ]
+  }
+}
