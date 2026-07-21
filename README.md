@@ -20,8 +20,20 @@ This application extracts strictly structured information and provides evidence-
   - Export a robust JSON structure containing all analytical data.
 - **Premium UI**: Clean, responsive, vanilla CSS UI with dynamic progress bars for confidence scores.
 
-  
+## Screenshots
+![Dashboard Interface](screenshots/dashboard.png)
+![AI Insights View](screenshots/insights.png)
+
+## Sample Outputs & Schemas
+- **Sample PDF Report**: [View PDF](outputs/sample_report.pdf)
+- **Sample JSON Output**: [View JSON](outputs/sample_output.json)
+
+## AI Prompt & Workflow
+The logic detailing the system architecture, JSON schema constraints, and hallucination prevention rules can be found here:
+- **[View Prompt & Workflow Details](prompt_workflow.md)**
+
 Live demo is not deployed. This repository contains the complete working prototype, setup instructions, screenshots, prompt workflow, JSON schema, and demo video.
+
 ## Setup
 
 1. Install dependencies:
