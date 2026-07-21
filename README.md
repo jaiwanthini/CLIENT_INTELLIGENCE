@@ -1,20 +1,24 @@
 # Client Intelligence Dashboard
 
 A modern AI-powered Dashboard for health coaches to analyze their client conversations.
-This application extracts strictly structured information using the Grok (xAI) API.
+This application extracts strictly structured information and provides evidence-grounded insights, originally built for the FUME GenAI Product Intern assignment.
 
 ## Features
-- Upload PDF or TXT files of client conversations.
-- Automatically generates a structured dashboard containing:
-  - Weekly Summaries
-  - Nutrition & Exercise Adherence
-  - Sleep & Water Intake
-  - Symptoms & Stress Levels
-  - Engagement Levels & Risk Flags
-  - Recommended Next Actions
-- Categorizes each insight (Confirmed Fact, Client Reported, AI Inference, Missing Information).
-- Provides confidence scores and supporting evidence directly from the text.
-- Clean, responsive vanilla CSS UI.
+- **Upload Functionality**: Supports PDF or TXT files of client conversations.
+- **Explainable AI**: Every AI Inference provides a "▼ Why?" dropdown, explicitly listing the reasoning and the strongest evidence snippets used.
+- **Strict Categorization**: Categorizes each insight strictly as:
+  - ✅ Confirmed Fact
+  - 🟣 Client Reported
+  - 🟠 AI Inference
+  - ⚪ Missing Information
+- **Hallucination Prevention**: Rejects unsupported claims, displaying "Missing Information" when the provided text lacks sufficient evidence.
+- **AI Quality Report**: Dynamically computes Evidence Coverage, Hallucination Risk, and counts for Facts, Inferences, Client Reported insights, and Unsupported Claims.
+- **Human Review Workflow**: Coaches can Approve (✔), Edit (✏), or Reject (✖) individual AI insights.
+- **Risk Badges**: Clear, color-coded severity badges (🔴 Critical, 🟠 High, 🟡 Medium, 🟢 Low) for potential client risks.
+- **Export Options**: 
+  - Download a cleanly formatted PDF report.
+  - Export a robust JSON structure containing all analytical data.
+- **Premium UI**: Clean, responsive, vanilla CSS UI with dynamic progress bars for confidence scores.
 
 ## Setup
 
@@ -29,20 +33,24 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-2. Run the Server:
+2. Set your API Key:
+Create a `.env` file in the root directory and add your Gemini API Key:
+```env
+GEMINI_API_KEY=your_api_key_here
+```
+
+3. Run the Server:
 ```bash
 uvicorn app:app --reload
 ```
 
-3. Open your browser and navigate to:
+4. Open your browser and navigate to:
 [http://127.0.0.1:8000](http://127.0.0.1:8000)
-
-4. Enter your **Grok (xAI) API Key** in the UI and click "Save Key". Then you can upload your client conversation files!
 
 ## Project Structure
 - `app.py`: FastAPI server
-- `analyzer.py`: AI communication logic using Grok API
+- `analyzer.py`: AI communication logic using the Gemini API and Pydantic schemas
 - `prompt.py`: Structured prompt definitions
-- `parser.py`: File parsing (PDF/TXT)
-- `utils.py`: Pydantic schemas and utility functions
-- `assets/`: Frontend HTML, CSS, and JS
+- `file_parser.py`: File parsing (PDF/TXT)
+- `utils.py`: Utility functions
+- `assets/`: Frontend HTML, CSS, and JS (Vanilla)
