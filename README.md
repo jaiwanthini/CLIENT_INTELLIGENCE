@@ -20,6 +20,8 @@ This application extracts strictly structured information and provides evidence-
   - Export a robust JSON structure containing all analytical data.
 - **Premium UI**: Clean, responsive, vanilla CSS UI with dynamic progress bars for confidence scores.
 
+  
+Live demo is not deployed. This repository contains the complete working prototype, setup instructions, screenshots, prompt workflow, JSON schema, and demo video.
 ## Setup
 
 1. Install dependencies:
