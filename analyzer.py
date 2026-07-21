@@ -33,21 +33,22 @@ class PrioritizedRisks(BaseModel):
 class RiskInsight(InsightBase):
     value: PrioritizedRisks = Field(default_factory=PrioritizedRisks)
 
-class ExecutiveSummary(BaseModel):
+class ExecutiveSummary(InsightBase):
     overall_health_status: str = Field(default="Missing Information")
+    overall_trend: str = Field(default="Unknown", description="One of: 'Improving', 'Stable', 'Declining', 'Unknown'")
     risk_level: str = Field(default="Unknown", description="One of: 'Low', 'Moderate', 'High', 'Critical', 'Unknown'")
     overall_engagement: str = Field(default="Unknown", description="One of: 'Poor', 'Moderate', 'Good', 'Unknown'")
     main_concerns: list[str] = Field(default_factory=list)
     coach_focus_this_week: str = Field(default="Missing Information")
 
-class CoachInsights(BaseModel):
+class CoachInsights(InsightBase):
     top_observations: list[str] = Field(default_factory=list)
     top_risks: list[str] = Field(default_factory=list)
     top_wins: list[str] = Field(default_factory=list)
     immediate_next_action: str = Field(default="Missing Information")
     follow_up_questions: list[str] = Field(default_factory=list)
 
-class TrendSummary(BaseModel):
+class TrendSummary(InsightBase):
     sleep: str = Field(default="Unknown", description="One of: 'Improving', 'Stable', 'Declining', 'Mixed', 'Unknown'")
     nutrition: str = Field(default="Unknown", description="One of: 'Improving', 'Stable', 'Declining', 'Mixed', 'Unknown'")
     stress: str = Field(default="Unknown", description="One of: 'Improving', 'Stable', 'Declining', 'Mixed', 'Unknown'")

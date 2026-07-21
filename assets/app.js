@@ -164,15 +164,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function formatDay(dayStr) {
+    if (!dayStr) return 'Unknown';
+    const lower = dayStr.toLowerCase().trim();
+    if (lower === 'all days' || lower === 'multiple days') return 'Multiple Days';
+    const numMatch = dayStr.match(/\d+/);
+    if (numMatch) return `Day ${numMatch[0]}`;
+    return dayStr;
+  }
+
   function calculateAIQuality(data) {
     let factsCount = 0;
+    let clientReportedCount = 0;
     let inferenceCount = 0;
     let missingCount = 0;
     let totalFields = 0;
-    let unsupportedInferenceCount = 0;
+    let unsupportedClaimsCount = 0;
     let missingEvidenceCount = 0;
 
     const fieldsToCheck = [
+      'executive_summary', 'trend_summary', 'coach_insights',
       'weekly_summary', 'nutrition_adherence', 'exercise_steps',
       'sleep', 'water_intake', 'symptoms', 'stress', 'engagement_level',
       'key_barriers', 'pending_actions', 'risk_flags', 'recommended_next_action'
@@ -184,21 +195,24 @@ document.addEventListener('DOMContentLoaded', () => {
         totalFields++;
         if (field.classification === 'Missing Information') {
           missingCount++;
-        } else if (field.classification === 'Confirmed Fact' || field.classification === 'Client Reported') {
+        } else if (field.classification === 'Confirmed Fact') {
           factsCount++;
+          if (!field.evidence && !field.overall_health_status) missingEvidenceCount++; // Exempt summaries which don't have explicit single evidence sometimes, but they should if possible
+        } else if (field.classification === 'Client Reported') {
+          clientReportedCount++;
           if (!field.evidence) missingEvidenceCount++;
         } else if (field.classification === 'AI Inference') {
           inferenceCount++;
-          if (!field.evidence_used || field.evidence_used.length === 0) unsupportedInferenceCount++;
+          if (!field.evidence_used || field.evidence_used.length === 0) unsupportedClaimsCount++;
         }
       }
     });
 
-    const populatedFields = factsCount + inferenceCount;
+    const populatedFields = factsCount + clientReportedCount + inferenceCount;
     const evidenceCoverage = totalFields > 0 ? Math.round((populatedFields / totalFields) * 100) + '%' : '0%';
     
     let hallucinationRisk = 'Low';
-    if (unsupportedInferenceCount > 0 || missingEvidenceCount > 2) {
+    if (unsupportedClaimsCount > 0 || missingEvidenceCount > 2) {
       hallucinationRisk = 'High';
     } else if (missingEvidenceCount > 0) {
       hallucinationRisk = 'Medium';
@@ -208,8 +222,10 @@ document.addEventListener('DOMContentLoaded', () => {
       evidence_coverage: evidenceCoverage,
       hallucination_risk: hallucinationRisk,
       facts_count: factsCount,
+      client_reported_count: clientReportedCount,
       inference_count: inferenceCount,
-      missing_information_count: missingCount
+      missing_information_count: missingCount,
+      unsupported_claims_count: unsupportedClaimsCount
     };
   }
 
@@ -222,9 +238,13 @@ document.addEventListener('DOMContentLoaded', () => {
     container.classList.remove('hidden');
     
     container.innerHTML = `
-      <h2>Executive Summary</h2>
+      <div class="card-header">
+        <h2 style="margin:0;">Executive Summary</h2>
+        ${summary.classification ? `<span class="badge ${summary.classification.toLowerCase().replace(/ /g, '-')}">${summary.classification}</span>` : ''}
+      </div>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1rem;">
         <div><strong>Status:</strong> ${summary.overall_health_status || 'Unknown'}</div>
+        <div><strong>Overall Trend:</strong> ${getTrendWithArrow(summary.overall_trend)}</div>
         <div><strong>Risk Level:</strong> <span class="badge ${summary.risk_level?.toLowerCase()}">${summary.risk_level || 'Unknown'}</span></div>
         <div><strong>Engagement:</strong> ${summary.overall_engagement || 'Unknown'}</div>
       </div>
@@ -256,7 +276,10 @@ document.addEventListener('DOMContentLoaded', () => {
     container.classList.remove('hidden');
     
     container.innerHTML = `
-      <h2>Trend Summary</h2>
+      <div class="card-header">
+        <h2 style="margin:0;">Trend Summary</h2>
+        ${trends.classification ? `<span class="badge ${trends.classification.toLowerCase().replace(/ /g, '-')}">${trends.classification}</span>` : ''}
+      </div>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
         <div><strong>Sleep:</strong> ${getTrendWithArrow(trends.sleep)}</div>
         <div><strong>Nutrition:</strong> ${getTrendWithArrow(trends.nutrition)}</div>
@@ -275,7 +298,10 @@ document.addEventListener('DOMContentLoaded', () => {
     container.classList.remove('hidden');
 
     container.innerHTML = `
-      <h2>Coach Insights</h2>
+      <div class="card-header">
+        <h2 style="margin:0;">Coach Insights</h2>
+        ${insights.classification ? `<span class="badge ${insights.classification.toLowerCase().replace(/ /g, '-')}">${insights.classification}</span>` : ''}
+      </div>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
         <div>
           <strong>Top 3 Observations</strong>
@@ -310,12 +336,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     container.innerHTML = `
       <h2>AI Quality Report</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem;">
         <div><strong>Evidence Coverage:</strong> ${report.evidence_coverage || 'Unknown'}</div>
         <div><strong>Hallucination Risk:</strong> ${report.hallucination_risk || 'Unknown'}</div>
-        <div><strong>Facts:</strong> ${report.facts_count || 0}</div>
-        <div><strong>Inferences:</strong> ${report.inference_count || 0}</div>
-        <div><strong>Missing Fields:</strong> ${report.missing_information_count || 0}</div>
+        <div><strong>Confirmed Facts:</strong> ${report.facts_count || 0}</div>
+        <div><strong>Client Reported:</strong> ${report.client_reported_count || 0}</div>
+        <div><strong>AI Inferences:</strong> ${report.inference_count || 0}</div>
+        <div><strong>Missing Information:</strong> ${report.missing_information_count || 0}</div>
+        <div><strong>Unsupported Claims:</strong> ${report.unsupported_claims_count || 0}</div>
       </div>
     `;
   }
@@ -371,11 +399,26 @@ document.addEventListener('DOMContentLoaded', () => {
       ${evHtml}
       ${explanationHtml}
       <div class="meta-footer">
-        <span class="confidence">Confidence: ${confPercentage}%</span>
+        <div class="confidence-container">
+          <span class="confidence-label">Confidence</span>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: ${confPercentage}%;"></div>
+          </div>
+          <span class="confidence-value">${confPercentage}%</span>
+        </div>
         <div class="actions">
-          <button class="action-btn approve" title="Approve">✓</button>
-          <button class="action-btn edit" title="Edit">✎</button>
-          <button class="action-btn reject" title="Reject">✗</button>
+          <button class="action-btn approve" title="Approve">
+            <div class="icon">✔</div>
+            <div class="action-label">Approve</div>
+          </button>
+          <button class="action-btn edit" title="Edit">
+            <div class="icon">✏</div>
+            <div class="action-label">Edit</div>
+          </button>
+          <button class="action-btn reject" title="Reject">
+            <div class="icon">✖</div>
+            <div class="action-label">Reject</div>
+          </button>
         </div>
       </div>
       <div class="review-panel hidden">
@@ -413,8 +456,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (insight.evidence && classification !== "Missing Information") {
       evHtml = `
         <div class="evidence-box">
-          <p>"${insight.evidence}"</p>
-          <small>- ${insight.speaker || 'Unknown'} (Day ${insight.day || 'Unknown'})</small>
+          <p><strong>Evidence</strong><br><small>${formatDay(insight.day)}</small><br>"${insight.evidence}"</p>
         </div>
       `;
     }
@@ -423,12 +465,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (classification === "AI Inference") {
       explanationHtml = `
         <button class="explanation-toggle" onclick="this.nextElementSibling.classList.toggle('hidden')">
-          <span>▼ Why was this inferred?</span>
+          <span>▼ Why?</span>
         </button>
         <div class="explanation-panel hidden">
           <h4>Evidence Used</h4>
           <ul>
-            ${(insight.evidence_used || []).map(e => `<li><small>Day ${insight.day || '?'}</small><br>"${e}"</li>`).join('') || '<li>None</li>'}
+            ${(insight.evidence_used || []).map(e => `<li><small>${formatDay(insight.day)}</small><br>"${e}"</li>`).join('') || '<li>None</li>'}
           </ul>
           <h4 style="margin-top:0.75rem;">Reasoning</h4>
           <p>${insight.reasoning || 'No reasoning provided.'}</p>
@@ -445,11 +487,26 @@ document.addEventListener('DOMContentLoaded', () => {
       ${evHtml}
       ${explanationHtml}
       <div class="meta-footer">
-        <span class="confidence">Confidence: ${confPercentage}%</span>
+        <div class="confidence-container">
+          <span class="confidence-label">Confidence</span>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: ${confPercentage}%;"></div>
+          </div>
+          <span class="confidence-value">${confPercentage}%</span>
+        </div>
         <div class="actions">
-          <button class="action-btn approve" title="Approve">✓</button>
-          <button class="action-btn edit" title="Edit">✎</button>
-          <button class="action-btn reject" title="Reject">✗</button>
+          <button class="action-btn approve" title="Approve">
+            <div class="icon">✔</div>
+            <div class="action-label">Approve</div>
+          </button>
+          <button class="action-btn edit" title="Edit">
+            <div class="icon">✏</div>
+            <div class="action-label">Edit</div>
+          </button>
+          <button class="action-btn reject" title="Reject">
+            <div class="icon">✖</div>
+            <div class="action-label">Reject</div>
+          </button>
         </div>
       </div>
       <div class="review-panel hidden">
